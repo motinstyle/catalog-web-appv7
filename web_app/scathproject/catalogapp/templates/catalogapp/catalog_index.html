@@ -1,0 +1,29 @@
+{% extends 'catalogapp/layout.html' %}
+
+{% block title %}
+    <p>Каталог</p>
+{% endblock %}
+
+{% block headercontent %}
+    <!-- <h4 class="logo">Наш каталог</h4> -->
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    
+    <div class="grid">
+        {% for card in cards %}
+        <div class="item">
+            <!--img src="{{ MEDIA_URL }}{{ card.path }}" alt="Товар {{ card.id }}"-->
+            <img src="/media/{{card.path}}" alt="Товар {{ card.id }}">
+            <div class="item-content">
+                <h4>{{ card.description }}</h3>
+                <p>{{ card.category }}</p>
+            </div>
+            <!--h3>{{ card.description }}</h3>
+            <p>{{ card.category }}</p-->
+        </div>
+        {% endfor %}
+    </div>
+</div>        
+{% endblock %}
